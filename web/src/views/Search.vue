@@ -68,6 +68,7 @@ export default defineComponent({
     };
 
     const indexUpdated = ({ name, columns }) => {
+      console.log("indexUpdated", name, columns);
       if (indexData.value.name != name) {
         indexData.value.name = name;
         indexData.value.columns = columns;
@@ -87,6 +88,7 @@ export default defineComponent({
     };
 
     const updateIndexFields = (fields) => {
+      console.log("updateIndexFields", fields);
       indexListRef.value.setIndexFields(fields);
     };
 

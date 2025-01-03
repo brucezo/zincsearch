@@ -53,9 +53,10 @@
               </q-td>
               <q-td v-else>
                 <high-light
-                  :content="col.value + ''"
+                  :content="col.value.replace(/\n\t/g, `<br/>`)"
                   :query-string="queryString"
-                ></high-light>
+                >
+                </high-light>
               </q-td>
             </template>
           </q-tr>
@@ -423,6 +424,7 @@ export default defineComponent({
         }
 
         queryString.value = queryData.query;
+        console.log("queryString", queryString);
         searchService
           .search({ index: indexData.name, query: query })
           .then((res) => {

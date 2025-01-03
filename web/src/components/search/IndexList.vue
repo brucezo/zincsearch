@@ -129,6 +129,7 @@ export default defineComponent({
         if (cachedFields.value[fields[k]]) {
           continue;
         }
+        console.log("add field", fields[k]);
         indexFields.value.push({ name: fields[k] });
         cachedFields.value[fields[k]] = true;
       }
